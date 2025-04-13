@@ -29,7 +29,7 @@ refeshButton.addEventListener("click", () => {
   document.querySelector(".electro-charged").classList.add("hide");
   document.querySelector(".crystalize").classList.add("hide");
   document.querySelector(".refresh").classList.remove("hide");
-  getWeather(lat, lon); // Call getWeather with the last known lat/lon, if there is none then we just hide this
+  getWeather(lat, lon); // Call getWeather with the last known lat/lon, if there is none then we just hide this button altogether
 });
 
 locationFetch.addEventListener("click", () => {
@@ -38,8 +38,8 @@ locationFetch.addEventListener("click", () => {
     (position) => {
       lat = position.coords.latitude; // Assign values to global variables
       lon = position.coords.longitude;
-      console.log(lat, lon);// Call latlongFetch with the input value
-      // Call getWeather with the fetched lat/lon
+      console.log(lat, lon); // logged just in case something is off
+
       getWeather(lat, lon);
     },
     (error) => {
@@ -61,8 +61,8 @@ function latlongFetch(cityname, statecode, countrycode) {
     .then((response) => response.json())
     .then((latlong) => {
       if (latlong.length > 0) {
-        lat = latlong[0].lat; // Assign latitude to global variable
-        lon = latlong[0].lon; // Assign longitude to global variable
+        lat = latlong[0].lat;
+        lon = latlong[0].lon; 
         console.log(`${lat} ${lon}`);
       } else {
         console.error("No results found for the provided city name.");
