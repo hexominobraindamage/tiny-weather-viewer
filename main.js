@@ -56,7 +56,7 @@ function latlongFetch(cityname, statecode, countrycode) {
   const countryParam = countrycode ? `,${countrycode}` : "";
   document.querySelector(".crystalize").classList.remove("hide");
   return fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}${stateParam}${countryParam}&limit=5&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}${stateParam}${countryParam}&limit=5&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((latlong) => {
