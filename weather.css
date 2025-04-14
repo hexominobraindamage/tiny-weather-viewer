@@ -101,3 +101,11 @@ display: flex;
     font-size: x-large;
     font-weight: bold;
 }
+
+.footer a{
+  color: cyan;
+}
+.footer a:hover{
+  color: white;
+cursor: crosshair
+}
