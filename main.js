@@ -12,12 +12,12 @@ let lat, lon; // Declare global variables for latitude and longitude
 let statecode = ""; // Declare statecode variable
 let countrycode = ""; // Declare countrycode variable
 locationInput.addEventListener("input", (e) => {
-  const cityname = e.target.value.trim().toLowerCase();
+  const cityname = e.target.value;
   locationInput.value = cityname;
 });
 locationButton.addEventListener("click", () => {
   document.querySelector(".crystalize").classList.remove("hide");
-  const cityname = locationInput.value.trim().toLowerCase();
+  const cityname = locationInput.value;
   latlongFetch(cityname, statecode, countrycode).then(() => {
     getWeather(lat, lon); // Call getWeather only after latlongFetch resolves
   });
